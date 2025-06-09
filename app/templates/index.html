@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZ-104 Exam Reviewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Azure Administrator (AZ-104) Exam Reviewer</h1>
+        </header>
+        
+        <div class="intro">
+            <p>Welcome to the interactive AZ-104 exam reviewer! This tool will help you prepare for the Microsoft Azure Administrator exam with practice questions.</p>
+            
+            <div class="features">
+                <h2>Features:</h2>
+                <ul>
+                    <li>Practice with real exam-style questions</li>
+                    <li>Test your knowledge with random questions</li>
+                    <li>Track your progress</li>
+                    <li>Review your answers</li>
+                </ul>
+            </div>
+            
+            <div class="start-section">
+                <h2>Ready to start?</h2>
+                <p>Choose your quiz mode:</p>
+                <div class="quiz-options">
+                    <a href="{{ url_for('quiz') }}?mode=all" class="btn primary">All Questions</a>
+                    <a href="{{ url_for('quiz') }}?mode=random&limit=10" class="btn secondary">10 Random Questions</a>
+                    <a href="{{ url_for('quiz') }}?mode=random&limit=25" class="btn secondary">25 Random Questions</a>
+                    <a href="{{ url_for('quiz') }}?mode=random&limit=50" class="btn secondary">50 Random Questions</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Built with Python and Flask • AZ-104 Exam Reviewer • &copy; 2025</p>
+        </footer>
+    </div>
+</body>
+</html>

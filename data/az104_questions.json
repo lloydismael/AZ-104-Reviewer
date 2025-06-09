@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "question": "You have an Azure subscription that contains a resource group named RG1. RG1 contains 100 virtual machines. Your company has three cost centers named Manufacturing, Sales, and Research. The Manufacturing cost center uses 50 virtual machines, the Sales cost center uses 30 virtual machines, and the Research cost center uses 20 virtual machines. You need to implement a solution that allows you to track the costs for each department. What should you do?",
+        "options": {
+            "A": "Add a tag to each virtual machine that has a name of Cost Center and a value of the appropriate cost center.",
+            "B": "Move the virtual machines for each cost center to a separate resource group.",
+            "C": "Create a resource group for each cost center and move the appropriate virtual machines to each new resource group.",
+            "D": "Create a policy that prevents the creation of virtual machines that do not have a tag named Cost Center."
+        },
+        "correct_answer": "A"
+    },
+    {
+        "id": 2,
+        "question": "You have an Azure subscription that contains a virtual network named VNET1. VNET1 contains four subnets named Subnet1, Subnet2, Subnet3, and Subnet4. You plan to deploy Azure Application Gateway to Subnet1. Which configuration must be changed before you deploy Application Gateway?",
+        "options": {
+            "A": "The service endpoint of Subnet1",
+            "B": "The address space of VNET1",
+            "C": "The network security group (NSG) linked to Subnet1",
+            "D": "The address space of Subnet1"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "id": 3,
+        "question": "You have Azure virtual machines that run Windows Server 2019 and are configured as web servers. You have an Azure Load Balancer that provides load balancing for the web servers. You need to ensure that the load balancer can distribute traffic based on URL path. What should you do?",
+        "options": {
+            "A": "Create a load balancing rule",
+            "B": "Add a health probe",
+            "C": "Upgrade to Azure Application Gateway",
+            "D": "Add an inbound NAT rule"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "id": 4,
+        "question": "You have an Azure subscription that contains a storage account. You have an on-premises server named Server1 that runs Windows Server 2019. You plan to use Azure Backup to back up Server1 to the storage account. What else should you create before you can configure Azure Backup?",
+        "options": {
+            "A": "A Recovery Services vault",
+            "B": "A backup policy",
+            "C": "A Backup Server",
+            "D": "A site-to-site VPN"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "id": 5,
+        "question": "You have an Azure subscription that contains a virtual network named VNet1. VNet1 contains four subnets named Gateway, Perimeter, NVA, and Production. The NVA subnet contains a network virtual appliance (NVA) named VM1 that runs Windows Server 2019. You create a route table named RT1. RT1 contains the routes shown in the following table.\n\nName | Address Prefix | Next Hop Type | Next Hop IP address\n-----|----------------|---------------|------------------\nRoute1 | 10.10.10.0/24 | VirtualAppliance | 10.0.1.4\nRoute2 | 10.20.20.0/24 | VirtualAppliance | 10.0.1.4\n\nYou need to ensure that all traffic from the Perimeter subnet to the Production subnet is inspected by VM1. What should you do?",
+        "options": {
+            "A": "Apply RT1 to the Perimeter subnet.",
+            "B": "Configure VM1 as a router.",
+            "C": "Apply RT1 to the Production subnet.",
+            "D": "Create a network interface, and then configure IP forwarding."
+        },
+        "correct_answer": "A"
+    }
+]

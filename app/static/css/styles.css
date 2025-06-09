@@ -1,0 +1,335 @@
+/* Base styles */
+:root {
+    --primary-color: #0078d4;
+    --secondary-color: #50e6ff;
+    --tertiary-color: #243a5e;
+    --success-color: #107c10;
+    --danger-color: #d13438;
+    --warning-color: #ffaa44;
+    --light-bg: #f9f9f9;
+    --dark-bg: #2d2d2d;
+    --text-color: #323130;
+    --light-text: #f5f5f5;
+    --border-radius: 4px;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    color: var(--tertiary-color);
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: var(--transition);
+    margin: 0.5rem;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary:hover {
+    background-color: #006ac1;
+}
+
+.secondary {
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+}
+
+.secondary:hover {
+    background-color: #3dd5ff;
+}
+
+.tertiary {
+    background-color: white;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.tertiary:hover {
+    background-color: #f0f8ff;
+}
+
+/* Home page styles */
+.intro {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+}
+
+.features {
+    margin: 2rem 0;
+}
+
+.features ul {
+    margin-left: 2rem;
+}
+
+.start-section {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.quiz-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Quiz page styles */
+.quiz-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-area {
+    flex-grow: 1;
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+}
+
+.quiz-status {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    font-weight: 500;
+}
+
+.progress-bar-container {
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.question-number {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--tertiary-color);
+}
+
+.question-text {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.options-container {
+    margin-bottom: 2rem;
+}
+
+.option {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.option:hover {
+    background-color: #f5f9ff;
+}
+
+.option.selected {
+    border-color: var(--primary-color);
+    background-color: #e6f3ff;
+}
+
+.option.correct {
+    border-color: var(--success-color);
+    background-color: #e5ffed;
+}
+
+.option.incorrect {
+    border-color: var(--danger-color);
+    background-color: #fff1f0;
+}
+
+.option-letter {
+    font-weight: bold;
+    margin-right: 1rem;
+    color: var(--primary-color);
+}
+
+.feedback {
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--primary-color);
+}
+
+.feedback.correct {
+    border-left-color: var(--success-color);
+}
+
+.feedback.incorrect {
+    border-left-color: var(--danger-color);
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.flag-btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+.flag-btn.active {
+    background-color: #fff3cd;
+    color: #856404;
+    border-color: #ffeeba;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Results styles */
+.results-summary {
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem 0;
+    background-color: #f8f9fa;
+    border-radius: var(--border-radius);
+    font-size: 1.25rem;
+}
+
+.results-actions, .review-actions {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+/* Review styles */
+.review-section {
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.review-section h3 {
+    color: var(--tertiary-color);
+    font-size: 1.4rem;
+}
+
+.review-item {
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #ddd;
+}
+
+.review-item.correct {
+    border-left-color: var(--success-color);
+}
+
+.review-item.incorrect {
+    border-left-color: var(--danger-color);
+}
+
+.review-item.flagged {
+    border-left-color: var(--warning-color);
+}
+
+.review-answer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+/* Footer styles */
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding-top: 2rem;
+    color: #777;
+    font-size: 0.9rem;
+}
