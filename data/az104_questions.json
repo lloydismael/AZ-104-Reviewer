@@ -42,8 +42,7 @@
             "D": "A site-to-site VPN"
         },
         "correct_answer": "A"
-    },
-    {
+    },    {
         "id": 5,
         "question": "You have an Azure subscription that contains a virtual network named VNet1. VNet1 contains four subnets named Gateway, Perimeter, NVA, and Production. The NVA subnet contains a network virtual appliance (NVA) named VM1 that runs Windows Server 2019. You create a route table named RT1. RT1 contains the routes shown in the following table.\n\nName | Address Prefix | Next Hop Type | Next Hop IP address\n-----|----------------|---------------|------------------\nRoute1 | 10.10.10.0/24 | VirtualAppliance | 10.0.1.4\nRoute2 | 10.20.20.0/24 | VirtualAppliance | 10.0.1.4\n\nYou need to ensure that all traffic from the Perimeter subnet to the Production subnet is inspected by VM1. What should you do?",
         "options": {
@@ -53,5 +52,60 @@
             "D": "Create a network interface, and then configure IP forwarding."
         },
         "correct_answer": "A"
+    },
+    {
+        "id": 6,
+        "question": "You have an Azure subscription that contains a virtual machine named VM1. You plan to use Azure Backup to back up VM1. You need to verify whether the VM agent is installed on VM1. What should you do?",
+        "options": {
+            "A": "From the Azure portal, examine the properties of VM1.",
+            "B": "From the Services console of VM1, examine the installed services.",
+            "C": "From the Azure portal, examine the Diagnose and solve problems blade.",
+            "D": "From Computer Management on VM1, examine the System Tools."
+        },
+        "correct_answer": "A"
+    },
+    {
+        "id": 7,
+        "question": "Your company has an Azure subscription that includes a storage account named storage1 in a resource group named RG1. The company plans to implement Azure site recovery between two Azure regions. You need to create an Azure Recovery Services vault and a backup policy. Which Azure PowerShell modules should you install first?",
+        "options": {
+            "A": "Az.RecoveryServices and Az.RecoveryServices.SiteRecovery",
+            "B": "Az.RecoveryServices and Az.RecoveryServices.Backup",
+            "C": "Az.Backup and Az.ManagedServiceIdentity",
+            "D": "Az.Compute and Az.RecoveryServices"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "id": 8,
+        "question": "You have an Azure subscription that contains a virtual network named VNet1. VNet1 contains a subnet named Subnet1. You create a VPN gateway named Gateway1 in Subnet1. You need to implement a point-to-site VPN for VNet1. What should you do first?",
+        "options": {
+            "A": "Generate and upload a self-signed root certificate.",
+            "B": "Create a gateway subnet.",
+            "C": "Create a local network gateway.",
+            "D": "Create a virtual network gateway."
+        },
+        "correct_answer": "A"
+    },
+    {
+        "id": 9,
+        "question": "You have an Azure subscription that contains a resource group named RG1. RG1 contains a virtual network named VNet1. VNet1 contains a subnet named Subnet1. Subnet1 contains virtual machines that run Windows Server. The virtual machines have a network security group (NSG) named NSG1 applied. NSG1 has an inbound security rule that allows connections on ports 80 and 443. You plan to deploy a new Azure API Management service instance to Subnet1. What should you do first?",
+        "options": {
+            "A": "Create a new subnet in VNet1.",
+            "B": "Modify NSG1 to allow connections on ports 3443 and 3386.",
+            "C": "Deploy Azure Application Gateway.",
+            "D": "Create an internal load balancer."
+        },
+        "correct_answer": "B"
+    },
+    {
+        "id": 10,
+        "question": "You plan to deploy an Azure virtual machine that will run Windows Server 2019. You need to ensure that you can connect to the virtual machine by using Remote Desktop. What should you do?",
+        "options": {
+            "A": "Configure an inbound NAT rule.",
+            "B": "Create a network security group (NSG) rule.",
+            "C": "Configure a load balancing rule.",
+            "D": "Enable Azure AD Connect."
+        },
+        "correct_answer": "B"
     }
 ]

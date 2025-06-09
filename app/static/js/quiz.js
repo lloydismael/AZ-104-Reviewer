@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             skipped: 0,
             remaining: 0
         }
-    };
-      // DOM Elements
+    };    // DOM Elements
     const elements = {
         questionContainer: document.getElementById('question-container'),
         resultsContainer: document.getElementById('results-container'),
@@ -39,7 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
         reviewList: document.getElementById('review-list'),
         timeTaken: document.getElementById('time-taken'),
         timer: document.getElementById('timer'),
-        progressBar: document.getElementById('progress-bar')
+        progressBar: document.getElementById('progress-bar'),
+        progressPercent: document.getElementById('progress-percent')
     };
     
     // Get URL parameters
@@ -72,8 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Error loading questions:', error);
                 alert('Failed to load questions. Please try again.');
             });
-    }
-      // Update quiz status (question count, score)
+    }    // Update quiz status (question count, score)
     function updateQuizStatus() {
         elements.currentQuestion.textContent = state.currentQuestionIndex + 1;
         elements.totalQuestions.textContent = state.questions.length;
@@ -84,10 +83,22 @@ document.addEventListener('DOMContentLoaded', function() {
         state.progressData.correct = state.score;
         state.progressData.incorrect = state.answers.length - state.score;
         
-        // Update progress bar if we've added one
-        if (elements.progressBar) {
-            const progressPercent = (state.currentQuestionIndex / state.questions.length) * 100;
-            elements.progressBar.style.width = `${progressPercent}%`;
+        // Update progress bar
+        const progressPercent = ((state.currentQuestionIndex + 1) / state.questions.length) * 100;
+        elements.progressBar.style.width = `${progressPercent}%`;
+        
+        // Update progress percentage text
+        if (elements.progressPercent) {
+            elements.progressPercent.textContent = `${Math.round(progressPercent)}%`;
+        }
+        
+        // Add color to progress bar based on progress
+        if (progressPercent < 30) {
+            elements.progressBar.style.backgroundColor = '#50e6ff'; // Light blue
+        } else if (progressPercent < 70) {
+            elements.progressBar.style.backgroundColor = '#0078d4'; // Primary blue
+        } else {
+            elements.progressBar.style.backgroundColor = '#107c10'; // Success green
         }
     }
       // Load the current question
@@ -240,8 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
             loadQuestion();
         }
     }
-    
-    // End the quiz and show results
+      // End the quiz and show results
     function endQuiz() {
         state.quizEnded = true;
         state.endTime = new Date();
@@ -255,10 +265,44 @@ document.addEventListener('DOMContentLoaded', function() {
         const seconds = ((timeDiff % 60000) / 1000).toFixed(0);
         const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         
+        // Calculate statistics
+        const totalQuestions = state.questions.length;
+        const correctAnswers = state.score;
+        const incorrectAnswers = state.answers.length - correctAnswers;
+        const unansweredQuestions = totalQuestions - state.answers.length;
+        const scorePercentage = Math.round((correctAnswers / totalQuestions) * 100);
+        
+        // Calculate average time per question (in seconds)
+        const totalTimeSeconds = Math.floor(timeDiff / 1000);
+        const avgTimePerQuestion = Math.round(totalTimeSeconds / state.answers.length);
+        const avgTimeFormatted = `${avgTimePerQuestion}s`;
+        
         // Update results
         elements.finalScore.textContent = state.score;
         elements.finalTotal.textContent = state.questions.length;
         elements.timeTaken.textContent = formattedTime;
+        
+        // Update detailed statistics
+        document.getElementById('correct-answers').textContent = correctAnswers;
+        document.getElementById('incorrect-answers').textContent = incorrectAnswers;
+        document.getElementById('unanswered-questions').textContent = unansweredQuestions;
+        document.getElementById('avg-time').textContent = avgTimeFormatted;
+        document.getElementById('score-percentage').textContent = `${scorePercentage}%`;
+        
+        // Update result progress bar
+        const resultProgressBar = document.getElementById('result-progress-bar');
+        resultProgressBar.style.width = `${scorePercentage}%`;
+        
+        // Set progress bar color based on score
+        if (scorePercentage < 50) {
+            resultProgressBar.style.backgroundColor = '#d13438'; // Danger/red
+        } else if (scorePercentage < 70) {
+            resultProgressBar.style.backgroundColor = '#ffaa44'; // Warning/orange
+        } else if (scorePercentage < 85) {
+            resultProgressBar.style.backgroundColor = '#0078d4'; // Primary/blue
+        } else {
+            resultProgressBar.style.backgroundColor = '#107c10'; // Success/green
+        }
         
         // Show results container
         hideElement(elements.questionContainer);

@@ -18,7 +18,7 @@
         
         <div class="quiz-area">        <div class="quiz-status">
                 <div class="progress">
-                    <span id="current-question">0</span> of <span id="total-questions">0</span> 
+                    Question <span id="current-question">0</span> of <span id="total-questions">0</span> 
                 </div>
                 <div class="score">
                     Score: <span id="score">0</span>
@@ -30,6 +30,11 @@
             
             <div class="progress-bar-container">
                 <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            
+            <div class="progress-details">
+                <span class="progress-label">Progress:</span>
+                <span class="progress-percent" id="progress-percent">0%</span>
             </div>
             
             <div id="question-container">
@@ -50,14 +55,39 @@
                     <button id="next-btn" class="btn secondary hidden">Next Question</button>
                 </div>
             </div>
-            
-            <div id="results-container" class="hidden">
+              <div id="results-container" class="hidden">
                 <h2>Quiz Results</h2>
                 <div class="results-summary">
-                    <p>You scored <span id="final-score">0</span> out of <span id="final-total">0</span></p>
+                    <p class="score-result">You scored <span id="final-score">0</span> out of <span id="final-total">0</span></p>
                     <p>Time taken: <span id="time-taken">00:00</span></p>
+                    <div class="percentage-container">
+                        <p>Percentage: <span id="score-percentage">0%</span></p>
+                        <div class="result-progress-bar-container">
+                            <div class="result-progress-bar" id="result-progress-bar"></div>
+                        </div>
+                    </div>
                 </div>
-                  <div class="results-actions">
+                
+                <div class="stats-grid">
+                    <div class="stat-box correct">
+                        <h3>Correct</h3>
+                        <div class="stat-value" id="correct-answers">0</div>
+                    </div>
+                    <div class="stat-box incorrect">
+                        <h3>Incorrect</h3>
+                        <div class="stat-value" id="incorrect-answers">0</div>
+                    </div>
+                    <div class="stat-box unanswered">
+                        <h3>Unanswered</h3>
+                        <div class="stat-value" id="unanswered-questions">0</div>
+                    </div>
+                    <div class="stat-box time">
+                        <h3>Avg. Time/Question</h3>
+                        <div class="stat-value" id="avg-time">0s</div>
+                    </div>
+                </div>
+                
+                <div class="results-actions">
                     <button id="review-btn" class="btn secondary">Review Answers</button>
                     <button id="export-btn" class="btn tertiary">Export Results</button>
                     <a href="{{ url_for('quiz') }}?mode=random&limit=10" class="btn primary">Try Again</a>

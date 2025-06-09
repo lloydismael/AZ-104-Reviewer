@@ -24,17 +24,15 @@
                     <li>Track your progress</li>
                     <li>Review your answers</li>
                 </ul>
-            </div>
-            
-            <div class="start-section">
+            </div>            <div class="start-section">
                 <h2>Ready to start?</h2>
                 <p>Choose your quiz mode:</p>
                 <div class="quiz-options">
                     <a href="{{ url_for('quiz') }}?mode=all" class="btn primary">All Questions</a>
+                    <a href="{{ url_for('quiz') }}?mode=random&limit=5" class="btn secondary">5 Random Questions</a>
                     <a href="{{ url_for('quiz') }}?mode=random&limit=10" class="btn secondary">10 Random Questions</a>
-                    <a href="{{ url_for('quiz') }}?mode=random&limit=25" class="btn secondary">25 Random Questions</a>
-                    <a href="{{ url_for('quiz') }}?mode=random&limit=50" class="btn secondary">50 Random Questions</a>
                 </div>
+                <p class="note"><em>Last updated: June 9, 2025 - Database contains 10 practice questions.</em></p>
             </div>
         </div>
         
