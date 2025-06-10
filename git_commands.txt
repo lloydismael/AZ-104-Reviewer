@@ -1,0 +1,13 @@
+# Git Commands for AZ-104 Reviewer Application
+
+# Check status of changes
+git status
+
+# Add all changes to staging
+git add .
+
+# Commit changes with message
+git commit -m "Add all 572 AZ-104 questions and enhance UI"
+
+# Push changes to GitHub
+git push origin main

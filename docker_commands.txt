@@ -1,0 +1,15 @@
+# Docker Commands for AZ-104 Reviewer Application
+
+# Build the Docker image with all 572 questions
+docker build -t az104-reviewer:v2.0 .
+
+# Test the Docker image locally
+docker run -p 5000:5000 az104-reviewer:v2.0
+
+# Tag the image for DockerHub
+docker tag az104-reviewer:v2.0 lloydismael12/az104-reviewer:v2.0
+docker tag az104-reviewer:v2.0 lloydismael12/az104-reviewer:latest
+
+# Push the images to DockerHub
+docker push lloydismael12/az104-reviewer:v2.0
+docker push lloydismael12/az104-reviewer:latest
